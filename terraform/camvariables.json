@@ -1,0 +1,185 @@
+{
+  "terraform_version": "~> 1",
+  "input_datatypes": [ ],
+  "input_namespaces": [ ],
+  "output_namespace": "",
+  "input_groups": [  {
+    "name": "Turbonomic",
+    "label": "Turbonomic"
+  } ],
+  "output_groups": [ ],
+  "template_input_params": [
+    {
+      "name": "create_database_group",
+      "label": "Create Database Group",
+      "description": "Whether or not this service instance contains Azure SQL databases",
+      "type": "boolean",
+      "default": false,
+      "regex": "",
+      "group_name": "Turbonomic",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "create_database_server_group",
+      "label": "Create Database Server Group",
+      "description": "Whether or not this service instance contains database servers",
+      "type": "boolean",
+      "default": false,
+      "regex": "",
+      "group_name": "Turbonomic",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "create_service",
+      "label": "Create Service",
+      "description": "Whether or not to create a Turbonomic service",
+      "type": "boolean",
+      "default": false,
+      "regex": "",
+      "group_name": "Turbonomic",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "create_virtual_machine_group",
+      "label": "Create Virtual Machine Group",
+      "description": "Whether or not this service instance contains virtual machines",
+      "type": "boolean",
+      "default": false,
+      "regex": "",
+      "group_name": "Turbonomic",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    },
+    {
+      "name": "create_virtual_machine_policy",
+      "label": "Create Virtual Machine Policy",
+      "description": "Whether or not to add a scale action policy to the virtual machine group",
+      "type": "boolean",
+      "default": false,
+      "regex": "",
+      "group_name": "Turbonomic",
+      "required": true,
+      "secured": false,
+      "hidden": false,
+      "immutable": false,
+      "immutable_after_create": false
+    }
+  ],
+  "template_output_params": [
+    {
+      "name": "database_group_id",
+      "label": "Database group ID",
+      "description": "The ID of the Turbonomic database group",
+      "group_name": "Turbonomic",
+      "secured": false,
+      "hidden": false,
+      "shortname": "",
+      "type": "string"
+    },
+    {
+      "name": "database_group_name",
+      "label": "Database group name",
+      "description": "The name of the Turbonomic database group",
+      "group_name": "Turbonomic",
+      "secured": false,
+      "hidden": false,
+      "shortname": "",
+      "type": "string"
+    },
+    {
+      "name": "database_server_group_id",
+      "label": "Database server group ID",
+      "description": "The ID of the Turbonomic database server group",
+      "group_name": "Turbonomic",
+      "secured": false,
+      "hidden": false,
+      "shortname": "",
+      "type": "string"
+    },
+    {
+      "name": "database_server_group_name",
+      "label": "Database server group name",
+      "description": "The name of the Turbonomic database server group",
+      "group_name": "Turbonomic",
+      "secured": false,
+      "hidden": false,
+      "shortname": "",
+      "type": "string"
+    },
+    {
+      "name": "service_id",
+      "label": "Service ID",
+      "description": "The ID of the Turbonomic service",
+      "group_name": "Turbonomic",
+      "secured": false,
+      "hidden": false,
+      "shortname": "",
+      "type": "string"
+    },
+    {
+      "name": "service_name",
+      "label": "Service name",
+      "description": "The name of the Turbonomic service",
+      "group_name": "Turbonomic",
+      "secured": false,
+      "hidden": false,
+      "shortname": "",
+      "type": "string"
+    },
+    {
+      "name": "virtual_machine_group_id",
+      "label": "Virtual machine group ID",
+      "description": "The ID of the Turbonomic virtual machine group",
+      "group_name": "Turbonomic",
+      "secured": false,
+      "hidden": false,
+      "shortname": "",
+      "type": "string"
+    },
+    {
+      "name": "virtual_machine_group_name",
+      "label": "Virtual machine group name",
+      "description": "The name of the Turbonomic virtual machine group",
+      "group_name": "Turbonomic",
+      "secured": false,
+      "hidden": false,
+      "shortname": "",
+      "type": "string"
+    },
+    {
+      "name": "virtual_machine_policy_id",
+      "label": "Virtual machine policy ID",
+      "description": "The ID of the Turbonomic virtual machine policy",
+      "group_name": "Turbonomic",
+      "secured": false,
+      "hidden": false,
+      "shortname": "",
+      "type": "string"
+    },
+    {
+      "name": "virtual_machine_policy_name",
+      "label": "Virtual machine policy name",
+      "description": "The name of the Turbonomic virtual machine policy",
+      "group_name": "Turbonomic",
+      "secured": false,
+      "hidden": false,
+      "shortname": "",
+      "type": "string"
+    }
+  ]
+}

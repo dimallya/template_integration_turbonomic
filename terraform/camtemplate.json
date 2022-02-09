@@ -1,0 +1,50 @@
+{
+  "name": "Turbonomic Integration",
+  "description": "Automates the creation of Turbonomic resources",
+  "version": "1.0",
+  "type": "integration",
+  "status" : "active",
+  "manifest": {
+    "template_type": "Terraform",
+    "template_format": "HCL",
+    "template_provider": "Turbonomic",
+    "template": {
+      "templateData": "",
+      "templateVariables": "",
+      "templateOutput": ""
+    },
+    "template_source": {
+      "githubRepoUrl": "",
+      "githubAccessToken": "",
+      "relativePathToTemplateFolder": "terraform",
+      "templateFileName": "main.tf"
+    }
+  },
+  "metadata": {
+    "providerDisplayName": "Turbonomic",
+    "longDescription": "This template automates the creation of Turbonomic resources. These resources enable you to gain insights and take action on the cloud resources provisioned by a service",
+    "bullets":
+    [
+      {
+        "title": "Clouds",
+        "description": " All Clouds<br>"
+      },
+      {
+        "title": "Operating Systems Supported",
+        "description": "Not applicable. Template commands are run in the Terraform Runtime Service pod."
+      },
+      {
+        "title": "Prerequisites",
+        "description": "<ol class=\"list-numbering\"><li>A Turbonomic instance</li><li>A Turbonomic cloud connection</li><li>The Turbonomic instance must be network accessible from the Terraform Runtime Service.</li></ol>"
+      },
+      {
+        "title": "Turbonomic Resources Managed",
+        "description": "<ol class=\"list-numbering\"><li>Service</li><li>Database group</li><li>Database server group</li><li>Virtual machine group</li><li>Virtual machine scale action policy</li></ol>"
+      },
+      {
+        "title": "Usage and Special Notes",
+        "description": "<ol class=\"list-numbering\"><li>This template is intended to be used in a service, not as a standalone template.</li><li>In order for cloud resources to be included in a Turbonomic group they must have the <strong>service_name</strong> and <strong>service_identifier</strong> tags applied.</li></ol>"
+      }
+    ]
+  }
+ }
