@@ -174,6 +174,8 @@ def create_group(host, auth_cookie, name, type, tag_name, tag_value):
     filter_type = 'vmsByTag'
     if type == DATABASE_SERVER:
         filter_type = 'databaseServerByTag'
+    elif type == DATABASE:
+        filter_type = 'databaseByTag'
 
     endpoint = host + '/api/v3/groups'
     headers = {'cookie': auth_cookie}
