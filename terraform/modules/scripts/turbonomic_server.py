@@ -390,20 +390,28 @@ def delete_resource(endpoint, auth_cookie, resource_type, id):
     '''
     endpoint = endpoint + '/' + id
     headers = {'cookie': auth_cookie}
-    response = requests.delete(endpoint, verify=False, headers=headers)
-    if response.status_code == 200:
-        print_to_stderr(resource_type + ' with id ' + id + ' was deleted successfully')
-    elif response.status_code == 404:
-        print_to_stderr(resource_type + ' with id ' + id + ' does not exist')
-    else:
-        # For some reason, deleting a Group that doesn't exists returns a 500.
-        # Pretend this is a 404 (not found).
-        if response.status_code == 500 and 'NOT_FOUND' in response.text:
-            response.status_code = 404
+
+    try_again = True
+    attempted = 1
+    while try_again:
+        try_again = False
+        response = requests.delete(endpoint, verify=False, headers=headers)
+        if response.status_code == 200:
+            print_to_stderr(resource_type + ' with id ' + id + ' was deleted successfully')
+        elif response.status_code == 404:
             print_to_stderr(resource_type + ' with id ' + id + ' does not exist')
         else:
-            print_to_stderr('Error ' + str(response.status_code) + ' deleting ' + resource_type + ' with id ' + id)
-            print_to_stderr('response.txt: ' + response.text)
+            # There is a race condition when deleting a service. If a group in the service
+            # is deleted while the service is being deleted you may get a status code
+            # 500 and the service is not deleted. To avoid any race conditions, attempt to
+            # delete the resource a second time.
+            if response.status_code == 500 and attempted == 1:
+                print_to_stderr('Error 500 while deleting a ' + resource_type + ' with id ' + id + '. Try again.')
+                attempted += 1
+                try_again = True
+            else:
+                print_to_stderr('Error ' + str(response.status_code) + ' deleting ' + resource_type + ' with id ' + id)
+                print_to_stderr('response.txt: ' + response.text)
 
     return response.status_code
 
