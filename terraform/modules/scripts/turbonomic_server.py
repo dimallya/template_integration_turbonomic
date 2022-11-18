@@ -425,7 +425,8 @@ def print_to_stderr(message):
     Parameters:
         message : The message to write
     '''
-    print >> sys.stderr, message
+    # print >> sys.stderr, message
+    print(message, file=sys.stderr)
 
 #####################################################################
 # Main                                                              #
