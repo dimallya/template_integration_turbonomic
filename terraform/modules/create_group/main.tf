@@ -13,7 +13,7 @@ terraform {
 # Create a group                             #
 ##############################################
 resource "camc_scriptpackage" "create_group" {
-  program = ["/usr/bin/python", "${path.module}/../scripts/turbonomic_server.py", "-g", "${var.name}", "-T", "${var.type}", "-t", "${var.tag_name}", "-v", "${var.tag_value}"]
+  program = ["/usr/bin/python3", "${path.module}/../scripts/turbonomic_server.py", "-g", "${var.name}", "-T", "${var.type}", "-t", "${var.tag_name}", "-v", "${var.tag_value}"]
   on_create = true
 }
 
@@ -22,6 +22,6 @@ resource "camc_scriptpackage" "create_group" {
 ##############################################
 resource "camc_scriptpackage" "delete_group" {
   depends_on = [camc_scriptpackage.create_group]
-  program = ["/usr/bin/python", "${path.module}/../scripts/turbonomic_server.py", "-d", "-G", lookup(camc_scriptpackage.create_group.result, "group_id")]
+  program = ["/usr/bin/python3", "${path.module}/../scripts/turbonomic_server.py", "-d", "-G", lookup(camc_scriptpackage.create_group.result, "group_id")]
   on_delete = true
 }
