@@ -35,7 +35,7 @@ DATABASE_SERVER_LOWER = 'databaseserver'
 #####################################################################
 # Custom IA scale action workflow display name                      #
 #####################################################################
-ia_workflow_name = 'IAScaleAction'
+ia_workflow_name = 'IAScaleActionTest'
 
 def get_authentication_cookie(host, user, password):
     '''
