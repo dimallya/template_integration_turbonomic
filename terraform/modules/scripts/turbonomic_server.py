@@ -284,7 +284,8 @@ def get_workflow(host, auth_cookie, name, entity_type, action_type):
     if response.status_code == 200:
         workflows = response.json()
         for wf in workflows:
-            if wf['displayName'] == name and wf['entityType'] == entity_type and wf['actionType'] == action_type:
+            #if wf['displayName'] == name and wf['entityType'] == entity_type and wf['actionType'] == action_type:
+            if wf['displayName'] == name
                 workflow_id = wf['uuid']
                 print_to_stderr('Workflow ' + name + ' was found')
                 break
